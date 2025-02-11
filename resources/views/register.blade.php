@@ -33,17 +33,17 @@
 
                                         <form>
                                             <div data-mdb-input-init class="form-outline mb-4">
-                                              <input type="text" id="inputName" class="form-control form-control-lg" onchage=buildUser(event) />
+                                              <input type="text" id="inputName" class="form-control form-control-lg" onchage=buildUser() />
                                               <label class="form-label" for="inputName">Nombre</label>
                                             </div>
 
                                             <div data-mdb-input-init class="form-outline mb-4">
-                                              <input type="text" id="inputLastname" class="form-control form-control-lg" onchage=buildUser(event) />
+                                              <input type="text" id="inputLastname" class="form-control form-control-lg" onchage=buildUser() />
                                               <label class="form-label" for="inputLastname">Apellido</label>
                                             </div>
 
                                             <div data-mdb-input-init class="form-outline mb-4">
-                                              <input type="email" id="inputDni" class="form-control form-control-lg" onchage=buildUser(event) />
+                                              <input type="email" id="inputDni" class="form-control form-control-lg" onchage=buildUser() />
                                               <label class="form-label" for="inputDni">CI</label>
                                             </div>
 

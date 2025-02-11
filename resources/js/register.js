@@ -14,3 +14,25 @@ function buildUser (e) {
 
   userValue.value = `${name}${lastname}${dni}`
 }
+
+function buildUser() {
+  const name = document.getElementById('inputName').value.toLowerCase();
+  const lastname = document.getElementById('inputLastname').value.toLowerCase();
+  const dni = document.getElementById('inputDni').value;
+  
+  let username = '';
+  
+  if (name && lastname && dni) {
+      // Get the full name
+      const firstLetterLastname = lastname.charAt(0);
+      
+      // Get last 3 digits of DNI
+      const lastThreeDigits = dni.slice(-3);
+      
+      // Build username: name + first letter of lastname + last 3 digits of DNI
+      username = name + firstLetterLastname + lastThreeDigits;
+  }
+  
+  // Update the username field
+  document.getElementById('inputUser').value = username;
+}
