@@ -81,7 +81,7 @@
           </div>
 
           <div class="text-center text-lg-start mt-4 pt-2">
-              <button id="botonLogin" type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem; margin-bottom: 2.5rem">Login</button>
+          <a href="{{ route('crud') }}" class="btn btn-primary btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem; margin-bottom: 2.5rem">LogIn</a>
               <a href="{{ route('register') }}" class="btn btn-primary btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem; margin-bottom: 2.5rem">No Tienes Cuenta?</a>
           </div>
         </form>

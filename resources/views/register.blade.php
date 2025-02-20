@@ -36,48 +36,48 @@
                                 <div class="card-body p-5">
                                     <h2 class="text-uppercase text-center mb-5">Create an account</h2>
 
-                                        <form>
-                                            <div data-mdb-input-init class="form-outline mb-4">
-                                              <input type="text" id="inputName" class="form-control form-control-lg" onchage=buildUser() />
-                                              <label class="form-label" for="inputName">Nombre</label>
-                                            </div>
+                                    <form>
+                                        <div data-mdb-input-init class="form-outline mb-4">
+                                            <input type="text" id="inputName" class="form-control form-control-lg" onchange="buildUser()" />
+                                            <label class="form-label" for="inputName">Nombre</label>
+                                        </div>
 
-                                            <div data-mdb-input-init class="form-outline mb-4">
-                                              <input type="text" id="inputLastname" class="form-control form-control-lg" onchage=buildUser() />
-                                              <label class="form-label" for="inputLastname">Apellido</label>
-                                            </div>
+                                        <div data-mdb-input-init class="form-outline mb-4">
+                                            <input type="text" id="inputLastname" class="form-control form-control-lg" onchange="buildUser()" />
+                                            <label class="form-label" for="inputLastname">Apellido</label>
+                                        </div>
 
-                                            <div data-mdb-input-init class="form-outline mb-4">
-                                              <input type="email" id="inputDni" class="form-control form-control-lg" onchage=buildUser() />
-                                              <label class="form-label" for="inputDni">CI</label>
-                                            </div>
+                                        <div data-mdb-input-init class="form-outline mb-4">
+                                            <input type="text" id="inputDni" class="form-control form-control-lg" onchange="buildUser()" />
+                                            <label class="form-label" for="inputDni">CI</label>
+                                        </div>
 
-                                            <div data-mdb-input-init class="form-outline mb-4">
-                                              <input type="password" id="inputPassword" class="form-control form-control-lg" />
-                                              <label class="form-label" for="inputPassword">Contraseña</label>
-                                            </div>
+                                        <div data-mdb-input-init class="form-outline mb-4">
+                                            <input type="password" id="inputPassword" class="form-control form-control-lg" />
+                                            <label class="form-label" for="inputPassword">Contraseña</label>
+                                        </div>
 
-                                            <div data-mdb-input-init class="form-outline mb-4">
-                                              <input type="password" id="inputPasswordConfirm" class="form-control form-control-lg" />
-                                              <label class="form-label" for="inputPasswordConfirm">Repetie Contraseña</label>
-                                            </div>
+                                        <div data-mdb-input-init class="form-outline mb-4">
+                                            <input type="password" id="inputPasswordConfirm" class="form-control form-control-lg" />
+                                            <label class="form-label" for="inputPasswordConfirm">Repetir Contraseña</label>
+                                        </div>
 
-                                            <div data-mdb-input-init class="form-outline mb-4">
-                                              <input type="text" readonly="readonly" id="inputUser" class="form-control form-control-lg" />
-                                              <label class="form-label" for="inputUser">Usuario</label>
-                                            </div>
+                                        <div data-mdb-input-init class="form-outline mb-4">
+                                            <input type="text" readonly="readonly" id="inputUser" class="form-control form-control-lg" />
+                                            <label class="form-label" for="inputUser">Usuario</label>
+                                        </div>
 
-                                            <div class="d-flex justify-content-center">
-                                              <a href="{{ route('welcome') }}" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</a>
-                                            </div>
+                                        <div class="d-flex justify-content-center">
+                                            <a href="{{ route('welcome') }}" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</a>
+                                        </div>
 
-                                            <p class="text-center text-muted mt-5 mb-0">
-                                                Have already an account?
-                                                <a href="{{ route('welcome') }}" class="fw-bold text-body">
-                                                    <u>Login here</u>
-                                                </a>
-                                            </p>
-                                        </form>
+                                        <p class="text-center text-muted mt-5 mb-0">
+                                            Have already an account?
+                                            <a href="{{ route('welcome') }}" class="fw-bold text-body">
+                                                <u>Login here</u>
+                                            </a>
+                                        </p>
+                                    </form>
 
                                 </div>
                             </div>
@@ -86,8 +86,57 @@
                 </div>
             </div>
         </section>
+            <!--creacion de usuario en tiempo real-->
+        <script>
+          function buildUser() {
+              const name = document.getElementById('inputName').value;
+              const lastname = document.getElementById('inputLastname').value;
+              const dni = document.getElementById('inputDni').value;
 
-        <script src="{{ asset('public\js\register.js') }}"></script>
+              if (name && lastname && dni && dni.length >= 3) { // Verifica que los campos tengan valores y que CI tenga al menos 3 dígitos
+
+                  const firstName = name.split(' ')[0]; // Obtiene el primer nombre
+                  const firstLetterLastname = lastname.charAt(0).toUpperCase(); // Obtiene la primera letra del apellido y la convierte a mayúscula
+                  const lastThreeDigitsDni = dni.slice(-3); // Obtiene los últimos 3 dígitos de la cédula
+
+                  const user = firstName + firstLetterLastname + lastThreeDigitsDni;
+
+                  document.getElementById('inputUser').value = user;
+              } else {
+                  document.getElementById('inputUser').value = ''; // Limpia el campo si no hay datos suficientes
+              }
+          }
+
+
+          //Para que la funcion se ejecute al cargar la página (en caso de que los campos ya tengan valores)
+          window.addEventListener('DOMContentLoaded', buildUser);
+
+        </script>
+        <!--validacion de la contrasena-->
+        <script>
+          function validarContrasena() {
+              const password = document.getElementById('inputPassword').value;
+              const confirmPassword = document.getElementById('inputPasswordConfirm').value;
+
+              if (password === confirmPassword) {
+                // Las contraseñas coinciden
+                document.getElementById('inputPasswordConfirm').setCustomValidity('');
+                return true;
+              } else {
+                // Las contraseñas no coinciden
+                alert('Las contraseñas no coinciden.'); // Muestra el alert
+                document.getElementById('inputPasswordConfirm').setCustomValidity('Las contraseñas no coinciden.');
+                return false;
+              }
+            }
+
+            const formulario = document.querySelector('form');
+            formulario.addEventListener('submit', function(event) {
+              if (!validarContrasena()) {
+                event.preventDefault();
+              }
+            });
+        </script>
     </body>
     
 </html>

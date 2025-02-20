@@ -21,6 +21,10 @@ Route::get('/register', function () {
     return view('register');
 });
 
+Route::get('/crud', function () {
+    return view('crud');
+});
+
 use Illuminate\Support\Facades\register;
 Route::get('/register', function () {
     return view('register');
@@ -31,3 +35,9 @@ use Illuminate\Support\Facades\welcome;
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
+
+
+use Illuminate\Support\Facades\crud;
+Route::get('/crud', function () {
+    return view('crud');
+})->name('crud');
