@@ -22,9 +22,9 @@ class Estudiante extends Model
         'fecha',
     ];
 
-    // Relación con la tabla informatica
+    // Relación con la tabla informatica uno a uno
     public function informatica()
     {
-        return $this->hasMany(Informatica::class, 'estudiante');
+        return $this->hasOne(Informatica::class);
     }
 }

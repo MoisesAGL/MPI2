@@ -40,16 +40,14 @@
                         <td>{{ $estudiante->usuario }}</td>
                         <td>{{ $estudiante->rol }}</td>
                         <td>{{ $estudiante->fecha }}</td>
-                        <td>
-                            @foreach ($estudiante->informatica as $nota)
-                                {{ $nota->nota }} <br>  {{-- O usa la coma como separador si prefieres --}}
-                            @endforeach
-                        </td>
-                        <td>
-                            @foreach ($estudiante->informatica as $nota)
-                                {{ $nota->fecha }} <br> {{-- O usa la coma como separador si prefieres --}}
-                            @endforeach
-                        </td>
+
+                        @if ($estudiante->informatica == null)
+                            <td>0</td>
+                            <td>No requerida</td>
+                        @else
+                            <td>{{ $estudiante->informatica->nota }}</td>
+                            <td>{{ $estudiante->informatica->fecha }}</td>
+                        @endif
                     </tr>
                 @endforeach  {{-- Cierra el bucle @foreach --}}
             </tbody>  {{-- Cierra la etiqueta <tbody> --}}

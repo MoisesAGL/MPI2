@@ -12,14 +12,14 @@ class Informatica extends Model
     protected $table = 'informatica';
 
     protected $fillable = [
-        'estudiante',
+        'estudiante_id',
         'nota',
         'fecha',
     ];
 
     // Relación con la tabla estudiantes
-    public function estudiante()
-    {
-        return $this->belongsTo(Estudiante::class, 'estudiante');
-    }
+    // public function estudiante()
+    // {
+    //     return $this->belongsTo(Estudiante::class, 'estudiante');
+    // }
 }

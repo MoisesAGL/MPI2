@@ -13,36 +13,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+use App\Http\Controllers\DashboardController;
 
-Route::get('/register', function () {
-    return view('register');
-});
-
-Route::get('/crud', function () {
-    return view('crud');
-});
-
-use Illuminate\Support\Facades\register;
-Route::get('/register', function () {
-    return view('register');
-})->name('register');
-
-
-use Illuminate\Support\Facades\welcome;
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
+Route::get('/register', function () {
+    return view('register');
+})->name('register');
 
-use Illuminate\Support\Facades\crud;
-Route::get('/crud', function () {
-    return view('crud');
-})->name('crud');
-
-
-use App\Http\Controllers\DashboardController;
+Route::get('/crud', [DashboardController::class, 'index'])->name('crud');
+// Route::get('/crud', function () {
+//     return view('crud');
+// });
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');

@@ -17,6 +17,9 @@ class DashboardController extends Controller
             $estudiantes = Estudiante::with('informatica')->get();
         }
 
-        return view('dashboard', compact('estudiantes'));
+        // Para debugear esta variable
+        // dd($estudiantes);
+
+        return view('crud', compact('estudiantes'));
     }
 }
