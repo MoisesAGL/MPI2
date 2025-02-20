@@ -41,3 +41,8 @@ use Illuminate\Support\Facades\crud;
 Route::get('/crud', function () {
     return view('crud');
 })->name('crud');
+
+
+use App\Http\Controllers\DashboardController;
+
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
