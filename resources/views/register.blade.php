@@ -38,27 +38,37 @@
 
                                         <form>
                                             <div data-mdb-input-init class="form-outline mb-4">
-                                            <input type="text" id="form3Example1cg" class="form-control form-control-lg" />
-                                            <label class="form-label" for="form3Example1cg">Your Name</label>
+                                              <input type="text" id="inputName" class="form-control form-control-lg" onchage=buildUser() />
+                                              <label class="form-label" for="inputName">Nombre</label>
                                             </div>
 
                                             <div data-mdb-input-init class="form-outline mb-4">
-                                            <input type="email" id="form3Example3cg" class="form-control form-control-lg" />
-                                            <label class="form-label" for="form3Example3cg">Your Email</label>
+                                              <input type="text" id="inputLastname" class="form-control form-control-lg" onchage=buildUser() />
+                                              <label class="form-label" for="inputLastname">Apellido</label>
                                             </div>
 
                                             <div data-mdb-input-init class="form-outline mb-4">
-                                            <input type="password" id="form3Example4cg" class="form-control form-control-lg" />
-                                            <label class="form-label" for="form3Example4cg">Password</label>
+                                              <input type="email" id="inputDni" class="form-control form-control-lg" onchage=buildUser() />
+                                              <label class="form-label" for="inputDni">CI</label>
                                             </div>
 
                                             <div data-mdb-input-init class="form-outline mb-4">
-                                            <input type="password" id="form3Example4cdg" class="form-control form-control-lg" />
-                                            <label class="form-label" for="form3Example4cdg">Repeat your password</label>
+                                              <input type="password" id="inputPassword" class="form-control form-control-lg" />
+                                              <label class="form-label" for="inputPassword">Contraseña</label>
+                                            </div>
+
+                                            <div data-mdb-input-init class="form-outline mb-4">
+                                              <input type="password" id="inputPasswordConfirm" class="form-control form-control-lg" />
+                                              <label class="form-label" for="inputPasswordConfirm">Repetie Contraseña</label>
+                                            </div>
+
+                                            <div data-mdb-input-init class="form-outline mb-4">
+                                              <input type="text" readonly="readonly" id="inputUser" class="form-control form-control-lg" />
+                                              <label class="form-label" for="inputUser">Usuario</label>
                                             </div>
 
                                             <div class="d-flex justify-content-center">
-                                            <button id="botonReg" type="button" data-mdb-button-init
+                                              <button  type="button" data-mdb-button-init
                                                 data-mdb-ripple-init class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button>
                                             </div>
 
@@ -72,6 +82,8 @@
                 </div>
             </div>
         </section>
+
+        <script src="{{ asset('public\js\register.js') }}"></script>
     </body>
     
 </html>
