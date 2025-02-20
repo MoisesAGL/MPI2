@@ -21,3 +21,13 @@ Route::get('/register', function () {
     return view('register');
 });
 
+use Illuminate\Support\Facades\register;
+Route::get('/register', function () {
+    return view('register');
+})->name('register');
+
+
+use Illuminate\Support\Facades\welcome;
+Route::get('/', function () {
+    return view('welcome');
+})->name('welcome');

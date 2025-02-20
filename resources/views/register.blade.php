@@ -68,11 +68,15 @@
                                             </div>
 
                                             <div class="d-flex justify-content-center">
-                                              <button  type="button" data-mdb-button-init
-                                                data-mdb-ripple-init class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button>
+                                              <a href="{{ route('welcome') }}" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</a>
                                             </div>
 
-                                            <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="#!" class="fw-bold text-body"><u>Login here</u></a></p>
+                                            <p class="text-center text-muted mt-5 mb-0">
+                                                Have already an account?
+                                                <a href="{{ route('welcome') }}" class="fw-bold text-body">
+                                                    <u>Login here</u>
+                                                </a>
+                                            </p>
                                         </form>
 
                                 </div>
