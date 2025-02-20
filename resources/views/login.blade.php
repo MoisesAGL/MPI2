@@ -75,17 +75,7 @@
                 placeholder="Ingresa contraseña"
             />
             @error('username') <span style="color: red;">{{ $message }}</span>@enderror
-          </div>
-
-          <div class="d-flex justify-content-between align-items-center">
-              <div class="form-check mb-0">
-                  <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
-                  <label class="form-check-label" for="form2Example3">
-                      Remember me
-                  </label>
-              </div>
-              <a href="#!" class="text-body">Forgot password?</a>
-          </div>
+          </div>  
 
           <div class="text-center text-lg-start mt-4 pt-2">
             <button
@@ -94,9 +84,6 @@
                 type="submit"
                 @disabled($errors->isNotEmpty())
             >Iniciar sesión</button>
-
-            <a href="{{ route('login') }}" class="btn btn-primary btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem; margin-bottom: 2.5rem">LogIn</a>
-
             <a href="{{ route('register') }}" class="btn btn-primary btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem; margin-bottom: 2.5rem">
                 No Tienes Cuenta?
             </a>

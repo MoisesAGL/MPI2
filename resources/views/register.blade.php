@@ -189,18 +189,12 @@
                                         </div>
 
                                         <div class="d-flex justify-content-center">
-                                            <a href="{{ route('welcome') }}" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</a>
+                                            <a href="{{ route('login2') }}" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</a>
                                         </div>
 
                                         <p class="text-center text-muted mt-5 mb-0">
                                             Have already an account?
-
-
-                                            <a href="javascript:void(0)" onclick="validarContrasena()" class="fw-bold text-body">
-                                                <u>ASSdasd</u>
-                                            </a>
-
-                                            <a href="{{ route('welcome') }}" class="fw-bold text-body">
+                                            <a href="{{ route('login2') }}" class="fw-bold text-body">
                                                 <u>Login here</u>
                                             </a>
                                         </p>

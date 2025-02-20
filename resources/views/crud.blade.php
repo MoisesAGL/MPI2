@@ -43,6 +43,12 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
    </head>
    <body>
+   <a href="{{ route('login2') }}"
+      class="btn btn-primary btn-lg"
+      style="padding-left: 2.5rem; padding-right: 2.5rem; margin-bottom: 2.5rem; margin-top: 2.5rem">
+      Cerrar Sesion
+   </a>
+
     @if (session('success'))
         <div class="alert alert-success">
             {{ session('success') }}

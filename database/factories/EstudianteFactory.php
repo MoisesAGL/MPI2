@@ -22,7 +22,7 @@ class EstudianteFactory extends Factory
             'cedula' => $this->faker->unique()->numerify('##########'), // Número único de cédula
             'correo' => $this->faker->unique()->safeEmail, // Correo único
             'usuario' => $this->faker->unique()->userName, // Nombre de usuario único
-            'contrasena' => bcrypt('password'), // Contraseña encriptada
+            'contrasena' =>('password'), // Contraseña encriptada
             'rol' => $this->faker->randomElement(['estudiante', 'profesor']), // Rol aleatorio
             'fecha' => $this->faker->date(), // Fecha aleatoria
         ];

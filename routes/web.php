@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
 
+Route::post('/', function () { return view('login'); })->name('login2');
 Route::get('/crud', [DashboardController::class, 'index'])->name('crud');
 
 Route::get('/', [LoginController::class, 'mostrarFormularioLogin']);
