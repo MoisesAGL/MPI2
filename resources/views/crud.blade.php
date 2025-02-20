@@ -43,6 +43,21 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
    </head>
    <body>
+    @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
       <div class="container">
          <div class="table-responsive">
             <table class="table table-bordered   table-striped" style="margin-top:100px">
@@ -73,7 +88,14 @@
                      <td>0</td>
                      <td>No requerida</td>
                      @else
-                     <td>{{ $estudiante->informatica->nota }}</td>
+                     <td>
+                        <form action="{{ route('notas.update', $estudiante->informatica->id) }}" method="POST">
+                            @csrf
+                            @method('PUT')
+                            <input type="number" name="nota" value="{{ $estudiante->informatica->nota }}" min="0" max="20" required>
+                            <button type="submit">Guardar</button>
+                        </form>
+                     </td>
                      <td>{{ $estudiante->informatica->fecha }}</td>
                      @endif
                   </tr>

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('correo')->unique();
             $table->string('usuario')->unique();
             $table->string('contrasena');
-            $table->string('rol');
+            $table->enum ('rol', ['estudiante', 'profesor']);
             $table->date('fecha');
             $table->timestamps();
         });

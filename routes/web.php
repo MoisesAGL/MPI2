@@ -14,18 +14,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 use App\Http\Controllers\DashboardController;
-
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
-
-Route::get('/register', function () {
-    return view('register');
-})->name('register');
+use App\Http\Controllers\LoginController;
 
 Route::get('/crud', [DashboardController::class, 'index'])->name('crud');
-// Route::get('/crud', function () {
-//     return view('crud');
-// });
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('/', [LoginController::class, 'mostrarFormularioLogin']);
+Route::post('/login', [LoginController::class, 'iniciarSesion'])->middleware('guest')->name('login');
+
+Route::get('/register', function () { return view('register'); })->name('register');
+Route::put('/notas/{id}', [DashboardController::class, 'actualizarNota'])->name('notas.update');

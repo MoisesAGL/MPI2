@@ -155,7 +155,9 @@
                                 <div class="card-body p-5">
                                     <h2 class="text-uppercase text-center mb-5">Create an account</h2>
 
-                                    <form>
+                                    <form method="POST" action="{{ route('register') }}">
+                                        @csrf
+
                                         <div data-mdb-input-init class="form-outline mb-4">
                                             <input type="text" id="inputName" class="form-control form-control-lg" onchange="buildUser()" />
                                             <label class="form-label" for="inputName">Nombre</label>
